@@ -1,9 +1,12 @@
 import React from 'react';
-import './App.css';
+import Header from '../Header/Header';
+import styles from './App.module.scss';
 
 function App() {
   return (
-    <div className="page" />
+    <div className={styles.page__content}>
+      <Header />
+    </div>
   );
 }
 

@@ -1,0 +1,16 @@
+@import url(./vendor/normalize.css);
+
+.page {
+  min-width: 320px;
+  box-sizing: border-box;
+  padding: 45px;
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  background-color: #FFDF8C;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
