@@ -1,0 +1,45 @@
+.button {
+  min-width: 150px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 15px 23px;
+  border: none;
+  background-color: #FE5F1E;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+  transition: background-color .2s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #ec5114;
+  }
+
+  &__sum {
+    margin: 0;
+  }
+
+  &__border {
+    display: block;
+    width: 1px;
+    min-height: 100%;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin: 0 13px;
+  }
+
+  &__container {
+    display: flex;
+  }
+
+  &__icon {
+    display: block;
+    margin-right: 8px;
+  }
+
+  &__count {
+    display: block;
+  }
+}
