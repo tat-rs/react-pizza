@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import styles from './SelectItem.module.scss';
 
-function SelectItem({ item, setIsActiveSort }) {
+function SelectItem({ item }) {
+  const [isActiveSort, setIsActiveSort] = useState(false);
   return (
-    <button className={styles.item} onClick={() => setIsActiveSort(true)} type="button">
+    <button
+      className={classNames(styles.item, {
+        [styles.item_active]: isActiveSort,
+      })}
+      onClick={() => setIsActiveSort(!isActiveSort)}
+      type="button"
+    >
       {item}
     </button>
   );
@@ -12,7 +20,6 @@ function SelectItem({ item, setIsActiveSort }) {
 
 SelectItem.propTypes = {
   item: PropTypes.arrayOf.isRequired,
-  setIsActiveSort: PropTypes.func.isRequired,
 };
 
 export default SelectItem;
