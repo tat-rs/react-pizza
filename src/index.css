@@ -1,6 +1,7 @@
 @import url(./vendor/normalize.css);
 
 .page {
+  min-width: 320px;
   box-sizing: border-box;
   padding: 45px;
   font-family: 'Raleway', Arial, Helvetica, sans-serif;
