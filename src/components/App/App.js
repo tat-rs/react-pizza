@@ -1,13 +1,14 @@
 import React from 'react';
-import Header from '../Header/Header';
-import Main from '../Main/Main';
+import { Route, Routes } from 'react-router-dom';
+import MainPage from '../../pages/MainPage';
 import styles from './App.module.scss';
 
 function App() {
   return (
     <div className={styles.page__content}>
-      <Header />
-      <Main />
+      <Routes>
+        <Route exact path="/" element={<MainPage />} />
+      </Routes>
     </div>
   );
 }
