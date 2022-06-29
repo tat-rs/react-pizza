@@ -1,0 +1,10 @@
+.main {
+  flex-grow: 1;
+
+  &__sort {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 32px;
+  }
+}

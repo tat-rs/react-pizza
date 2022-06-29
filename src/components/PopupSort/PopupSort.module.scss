@@ -1,0 +1,38 @@
+.popup {
+  position: absolute;
+  bottom: -137px;
+  right: 0;
+  width: 132px;
+  box-sizing: border-box;
+  padding: 13px 0;
+  background-color: #FFFFFF;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 10px 14px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(254, 95, 30, 0.05);
+      font-weight: 700;
+      color: #FE5F1E;
+    }
+
+    &_active {
+      background-color: rgba(254, 95, 30, 0.05);
+      font-weight: 700;
+      color: #FE5F1E;
+    }
+  }
+}

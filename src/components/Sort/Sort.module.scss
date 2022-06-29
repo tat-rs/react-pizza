@@ -1,0 +1,35 @@
+.sort {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__icon {
+    width: 10px;
+    height: 6px;
+    margin-right: 7px;
+  }
+
+  &__text {
+    margin: 0;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.015em;
+    color: #2C2C2C;
+  }
+
+  &__category {
+    margin-left: 8px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.015em;
+    color: #FE5F1E;
+    border-bottom: 1px dashed #FE5F1E;
+  }
+}

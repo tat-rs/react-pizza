@@ -1,0 +1,14 @@
+.pizzas {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 45px 28px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__heading {
+    margin-bottom: 35px;
+  }
+}
