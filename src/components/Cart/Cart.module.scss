@@ -1,45 +1,104 @@
-.button {
-  min-width: 150px;
+@mixin btn () {
+  min-width: 211px;
+  padding: 18px 0;
   border-radius: 50px;
-  display: flex;
-  align-items: center;
-  padding: 15px 23px;
-  border: none;
-  background-color: #FE5F1E;
+  border: 1px solid;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  color: #FFFFFF;
-  transition: background-color .2s;
+  cursor: pointer;
+}
 
-  &:hover {
-    cursor: pointer;
-    background-color: #ec5114;
-  }
-
-  &__sum {
-    margin: 0;
-  }
-
-  &__border {
-    display: block;
-    width: 1px;
-    min-height: 100%;
-    background-color: rgba(255, 255, 255, 0.25);
-    margin: 0 13px;
-  }
+.cart {
+  padding: 94px 0 131px;
+  min-width: 821px;
+  margin: 0 auto;
 
   &__container {
     display: flex;
+    justify-content: space-between;
+  }
+
+  &__titleContainer {
+    display: flex;
+    gap: 17px;
+    align-items: center;
+    margin-bottom: 30px;
   }
 
   &__icon {
-    display: block;
-    margin-right: 8px;
+    width: 29px;
+    height: 29px;
   }
 
-  &__count {
-    display: block;
+  &__delete {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    border: none;
+    background-color: inherit;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__deleteIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__deleteText {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #B6B6B6;
+  }
+
+  &__result {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__resultInfo {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+
+    &_orange {
+      color: #fe5f1e;
+    }
+  }
+}
+
+.btn {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+
+  &__navBack {
+    @include btn ();
+    color: #CACACA;
+    border-color: #D3D3D3;
+    background-color: #fff;
+  }
+
+  &__navBackIcon {
+    min-width: 6px;
+    height: 12px;
+    margin-right: 14px;
+  }
+
+  &__navPush {
+    @include btn ();
+    color: #FFFFFF;
+    border-color: #FE5F1E;
+    background-color: #FE5F1E;
   }
 }

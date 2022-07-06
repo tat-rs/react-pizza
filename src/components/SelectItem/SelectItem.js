@@ -19,7 +19,7 @@ function SelectItem({ item }) {
 }
 
 SelectItem.propTypes = {
-  item: PropTypes.arrayOf.isRequired,
+  item: PropTypes.string.isRequired,
 };
 
 export default SelectItem;

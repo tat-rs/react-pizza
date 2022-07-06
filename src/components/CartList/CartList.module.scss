@@ -1,0 +1,81 @@
+.cart {
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid #F4F4F4;
+
+    &:not(:last-of-type) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__pizza {
+    display: grid;
+    grid-template-areas: 
+    "image title"
+    "image parametr";
+    grid-template-columns: 80px 1fr;
+    column-gap: 15px;
+  }
+
+  &__pizzaImage {
+    grid-area: image;
+    width: 100%;
+  }
+
+  &__pizzaTitle {
+    width: 280px;
+    grid-area: title;
+    margin: 0;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    align-self: flex-end;
+    margin-bottom: 4px;
+  }
+
+  &__pizzaParametr {
+    width: 280px;
+    grid-area: parametr;
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #8D8D8D;
+  }
+
+  &__countContainer {
+    display: flex;
+    align-content: center;
+    gap: 12px;
+  }
+
+  &__btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: #FFFFFF;
+    border: none;
+    border-radius: 50px;
+    color: #8D8D8D;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+  }
+}
