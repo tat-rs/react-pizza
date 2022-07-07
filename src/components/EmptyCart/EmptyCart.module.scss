@@ -1,0 +1,53 @@
+@import "../../styles/mixins";
+
+.EmptyCart {
+  box-sizing: border-box;
+  max-width: 547px;
+  margin: 0 auto;
+  padding: 163px 0 50px;
+
+  &__container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  &__title {
+    margin: 0 10px 0 0;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+  }
+
+  &__sadIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__info {
+    margin: 0 0 47px 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 145.4%;
+    text-align: center;
+    color: #777777;
+  }
+
+  &__image {
+    display: block;
+    width: 300px;
+    height: 255px;
+    margin: 0 auto 74px;
+  }
+
+  &__btnBack {
+    @include btn ();
+    display: block;
+    margin: 0 auto;
+    background-color: #282828;
+    color: #fff;
+  }
+}

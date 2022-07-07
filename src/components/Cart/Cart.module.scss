@@ -1,17 +1,6 @@
-@mixin btn () {
-  min-width: 211px;
-  padding: 18px 0;
-  border-radius: 50px;
-  border: 1px solid;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  cursor: pointer;
-}
+@import "../../styles/mixins";
 
 .cart {
-  padding: 94px 0 131px;
   min-width: 821px;
   margin: 0 auto;
 
@@ -25,6 +14,7 @@
     gap: 17px;
     align-items: center;
     margin-bottom: 30px;
+    padding-top: 94px;
   }
 
   &__icon {
@@ -80,6 +70,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
+    padding-bottom: 38px;
   }
 
   &__navBack {

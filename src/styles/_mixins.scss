@@ -1,0 +1,11 @@
+@mixin btn () {
+  min-width: 211px;
+  padding: 18px 0;
+  border-radius: 50px;
+  border: 1px solid;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+}
