@@ -1,16 +1,16 @@
 /* eslint-disable max-len */
 import React from 'react';
-import EmptyCart from '../EmptyCart/EmptyCart';
-/* import CartIcon from '../../images/cart-icon.svg';
+/* import EmptyCart from '../EmptyCart/EmptyCart'; */
+import CartIcon from '../../images/cart-icon.svg';
 import DeleteIcon from '../../images/delete-icon.svg';
 import CartList from '../CartList/CartList';
-import Heading from '../Heading/Heading'; */
+import Heading from '../Heading/Heading';
 import styles from './Cart.module.scss';
 
 function Cart() {
   return (
     <section className={styles.cart}>
-      {/* <div className={styles.cart__container}>
+      <div className={styles.cart__container}>
         <div className={styles.cart__titleContainer}>
           <img className={styles.cart__icon} src={CartIcon} alt="Иконка корзины" />
           <Heading text="Корзина" className={styles.cart__heading} />
@@ -36,7 +36,6 @@ function Cart() {
       <div className={styles.btn__container}>
         <button className={styles.btn__navBack} type="button">
           <svg className={styles.btn__navBackIcon} width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            // eslint-disable-next-line max-len, max-len
             <path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           Вернуться назад
@@ -44,8 +43,7 @@ function Cart() {
         </button>
         <button className={styles.btn__navPush} type="button">Оплатить сейчас</button>
       </div>
- */}
-      <EmptyCart />
+      {/* <EmptyCart /> */}
     </section>
   );
 }

@@ -1,0 +1,39 @@
+@import "../../styles/mixins";
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  min-height: 65vh;
+
+  &__content {
+    max-width: 400px;
+    margin: 0;
+    text-align: center;
+  }
+  
+  &__title {
+    margin: 0 0 5px;
+    font-weight: 400;
+    font-size: 140px;
+    line-height: 169px;
+    color: #fe5f1e;
+  }
+  
+  &__text {
+    margin: 0 0 120px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #fe5f1e;
+  }
+  
+  &__btnBack {
+    @include btn ();
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    background-color: #fe5f1e;
+  }
+}
