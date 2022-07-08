@@ -12,3 +12,20 @@
     margin-bottom: 35px;
   }
 }
+
+@media (max-width: 815px) {
+  .pizzas {
+    &__list {
+      gap: 15px;
+    }
+  } 
+}
+
+@media (max-width: 680px) {
+  .pizzas {
+    &__list {
+      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 400px));
+    }
+  } 
+}

@@ -30,5 +30,12 @@
       color: #7B7B7B;
     }
   }
+}
 
+@media (max-width: 680px) {
+  .logo {
+    &__desc {
+      display: none;
+    }
+  } 
 }

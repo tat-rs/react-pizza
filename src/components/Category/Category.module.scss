@@ -5,20 +5,25 @@
   font-size: 16px;
   line-height: 19px;
   text-align: center;
-  letter-spacing: 0.015em;
   color: #2C2C2C;
   background-color: #F9F9F9;
   border-radius: 30px;
   padding: 16px 34px;
-  transition: background-color .3s;
 
   &:hover {
     cursor: pointer;
-    background-color: #e8e5e5;
   }
 
   &_active {
     background-color: #282828;
     color: #fff;
+  }
+}
+
+@media (max-width: 815px) {
+  .item {
+    font-size: 13px;
+    line-height: 16px;
+    padding: 10px 20px;
   }
 }

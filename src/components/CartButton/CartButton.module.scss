@@ -44,3 +44,12 @@
     display: block;
   }
 }
+
+@media (max-width: 680px) {
+  .button {
+    padding: 10px 15px;
+    font-size: 12px;
+    line-height: 14px;
+    min-width: 100px;
+  } 
+}

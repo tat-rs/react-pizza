@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import React from 'react';
-/* import EmptyCart from '../EmptyCart/EmptyCart'; */
 import CartIcon from '../../images/cart-icon.svg';
 import DeleteIcon from '../../images/delete-icon.svg';
 import CartList from '../CartList/CartList';
@@ -43,7 +42,6 @@ function Cart() {
         </button>
         <button className={styles.btn__navPush} type="button">Оплатить сейчас</button>
       </div>
-      {/* <EmptyCart /> */}
     </section>
   );
 }

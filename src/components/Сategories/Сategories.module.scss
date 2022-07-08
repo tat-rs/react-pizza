@@ -5,3 +5,15 @@
   margin: 0;
   padding: 0;
 }
+
+@media (max-width: 1330px) {
+  .category {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 815px) {
+  .category {
+    justify-content: center;
+  }
+}

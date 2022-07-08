@@ -13,6 +13,68 @@
     line-height: 24px;
     text-align: center;
   }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    margin: 0;
+  }
+
+  &__button {
+    min-width: 132px;
+    min-height: 40px;
+    box-sizing: border-box;
+    padding: 0 14px;
+    background-color: #FFF;
+    border: 1px solid #FE5F1E;
+    border-radius: 30px;
+    color: #EB5A1E;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    justify-content: center;
+    transition: background-color .3s, color .3s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #FE5F1E;
+      color: #fff;
+
+      path {
+        fill: #fff;
+      }
+    }
+  }
+
+  &__buttonIcon {
+    width: 12px;
+    height: 12px;
+
+    path {
+      fill: #EB5A1E;
+      transition: fill .3s;
+    }
+    
+  }
+
+  &__count {
+    display: block;
+    min-width: 22px;
+    min-height: 22px;
+    background-color: #EB5A1E;
+    border-radius: 50%;
+    color: #FFF;
+  }
 }
 
 .sort {
@@ -36,7 +98,7 @@
     color: #2C2C2C;
     margin-right: 5px;
     flex-grow: 1;
-    padding: 6px 0 15px 0;
+    padding: 6px 0 15px;
     border-radius: 5px;
 
     &:hover {
@@ -49,50 +111,39 @@
     }
   }
 
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+}
+
+@media (max-width: 815px) {
+  .pizza__image {
+    width: 200px;
+    height: 200px;
   }
+}
 
-  &__price {
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 27px;
-    margin: 0;
-  }
+@media (max-width: 680px) {
+  .pizza {
+    &__price {
+      font-size: 18px;
+      line-height: 20px;
+    }
 
-  &__button {
-    min-width: 132px;
-    min-height: 40px;
-    background-color: #FE5F1E;
-    border: 1px solid #FE5F1E;
-    border-radius: 30px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    gap: 7px;
-    align-items: center;
-    justify-content: center;
+    &__count {
+      min-width: 18px;
+      min-height: 18px;
+    }
 
-    &:hover {
-      cursor: pointer;
+    &__button {
+      min-width: 132px;
+      min-height: 40px;
+      padding: 0 11px;
+      font-size: 14px;
+      line-height: 16px;
     }
   }
 
-  &__buttonIcon {
-    width: 12px;
-    height: 12px;
+  .sort {
+    &__item {
+      padding: 6px 0 10px;
+    }
   }
-
-  &__count {
-    display: block;
-    min-width: 22px;
-    min-height: 22px;
-    background-color: #EB5A1E;
-    border-radius: 50%;
-  }
-
 }

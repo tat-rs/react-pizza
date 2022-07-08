@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { sort } from '../../utils/constants';
-import SelectItem from '../SelectItem/SelectItem';
+import Category from '../Category/Category';
 import styles from './Сategories.module.scss';
 
 function Сategories() {
+  const [isActiveSort, setIsActiveSort] = useState('');
   return (
     <ul className={styles.category}>
       {
         sort.map((el, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <li key={i}>
-            <SelectItem item={el} />
+            <Category item={el} setIsActiveSort={setIsActiveSort} isActiveSort={isActiveSort} />
           </li>
         ))
       }
