@@ -1,20 +1,22 @@
 @import "../../styles/mixins";
 
 .cart {
-  min-width: 821px;
+  width: 100%;
+  max-width: 821px;
   margin: 0 auto;
 
   &__container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-top: 94px;
+    margin-bottom: 30px;
   }
 
   &__titleContainer {
     display: flex;
     gap: 17px;
     align-items: center;
-    margin-bottom: 30px;
   }
 
   &__icon {
@@ -54,6 +56,7 @@
   }
 
   &__resultInfo {
+    margin: 0;
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
@@ -91,5 +94,46 @@
     color: #FFFFFF;
     border-color: #FE5F1E;
     background-color: #FE5F1E;
+  }
+}
+
+@media (max-width: 870px) {
+  .cart {
+    &__container {
+      padding-top: 30px;
+    }
+
+    &__result {
+      margin-top: 20px;
+      display: flex;
+    }
+  
+    &__resultInfo {
+      font-size: 18px;
+      line-height: 20px;
+    }
+  }
+
+}
+
+@media (max-width: 680px) {
+  .cart {
+    &__result {
+      margin-top: 30px;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &__deleteText {
+      display: none;
+    }
+  }
+  .btn {
+    &__container {
+      flex-direction: column;
+      gap: 10px;
+      max-width: 400px;
+      margin: 40px auto 0;
+    }
   }
 }

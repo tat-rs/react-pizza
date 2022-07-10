@@ -8,4 +8,30 @@
   font-size: 16px;
   line-height: 19px;
   cursor: pointer;
+
+  @media (max-width: 680px) {
+    min-width: 180px;
+    padding: 12px 0;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+@mixin deleteBtn () {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 50px;
+  color: #8D8D8D;
+  
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (max-width: 680px) {
+    width: 26px;
+    height: 26px;
+  }
 }

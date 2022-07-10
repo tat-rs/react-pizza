@@ -1,3 +1,5 @@
+@import "../../styles/mixins";
+
 .cart {
   &__list {
     list-style-type: none;
@@ -11,6 +13,7 @@
     align-items: center;
     padding-top: 30px;
     border-top: 1px solid #F4F4F4;
+    position: relative;
 
     &:not(:last-of-type) {
       margin-bottom: 30px;
@@ -32,7 +35,7 @@
   }
 
   &__pizzaTitle {
-    width: 280px;
+    width: 100%;
     grid-area: title;
     margin: 0;
     font-weight: 700;
@@ -43,7 +46,7 @@
   }
 
   &__pizzaParametr {
-    width: 280px;
+    width: 100%;
     grid-area: parametr;
     margin: 0;
     font-weight: 400;
@@ -58,24 +61,92 @@
     gap: 12px;
   }
 
-  &__btn {
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    background: #FFFFFF;
-    border: none;
-    border-radius: 50px;
-    color: #8D8D8D;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
   &__text {
     margin: 0;
     font-weight: 700;
     font-size: 22px;
+    line-height: 22px;
+  }
+
+  &__countBtn {
+    @include deleteBtn ();
+    color: #8D8D8D;
+  }
+
+  &__deleteBtn {
+    @include deleteBtn ();
+    color: #8D8D8D;
+  }
+
+  &__sum {
+    margin: 0;
+    font-weight: 700;
+    font-size: 22px;
     line-height: 27px;
+  }
+}
+
+@media (max-width: 870px) {
+  .cart {
+    &__item {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 'pizza pizza'
+                           'count sum';
+      gap: 20px 0;
+      padding-top: 15px;
+    }
+
+    &__pizza {
+      grid-area: pizza;
+    }
+
+    &__countContainer {
+      grid-area: count;
+      justify-self: end;
+    }
+
+    &__sum {
+      grid-area: sum;
+      text-align: end;
+    }
+
+    &__deleteBtn {
+      position: absolute;
+      top: 15px;
+      right: 0;
+    }
+
+    &__pizzaTitle {
+      width: calc(100% - 40px);
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .cart {
+    &__pizza {
+      grid-template-columns: 60px 1fr
+    }
+
+    &__pizzaTitle {
+      font-size: 20px;
+      line-height: 22px;
+    }
+  
+    &__pizzaParametr {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  
+    &__text {
+      font-size: 20px;
+      line-height: 20px;
+    }
+
+    &__sum {
+      font-size: 20px;
+      line-height: 22px;
+    }
   }
 }
