@@ -6,7 +6,7 @@ import PopupSort from '../PopupSort/PopupSort';
 import Menu from '../Menu/Menu';
 import styles from './Main.module.scss';
 
-function Main({ pizzas }) {
+function Main({ pizzas, isLoading }) {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
   function handleChangePopup() {
@@ -21,13 +21,14 @@ function Main({ pizzas }) {
           isOpenPopup && <PopupSort />
         }
       </div>
-      <Menu pizzas={pizzas} />
+      <Menu pizzas={pizzas} isLoading={isLoading} />
     </main>
   );
 }
 
 Main.propTypes = {
   pizzas: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default Main;

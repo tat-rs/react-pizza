@@ -115,9 +115,11 @@
 }
 
 @media (max-width: 815px) {
-  .pizza__image {
-    width: 200px;
-    height: 200px;
+  .pizza {
+    &__image {
+      width: 200px;
+      height: 200px;
+    }
   }
 }
 
