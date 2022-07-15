@@ -14,7 +14,7 @@ function Pizza({ pizza }) {
   }
 
   return (
-    <li className={styles.pizza__item}>
+    <li className={styles.pizza}>
       <img src={pizza.imageUrl} alt={pizza.title} className={styles.pizza__image} />
       <h2 className={styles.pizza__title}>{pizza.title}</h2>
       <div className={styles.sort}>

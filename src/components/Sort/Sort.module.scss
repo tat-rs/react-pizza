@@ -13,7 +13,7 @@
   }
 
   &__text {
-    margin: 0;
+    margin: 0 8px 0 0 ;
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
@@ -31,5 +31,17 @@
     letter-spacing: 0.015em;
     color: #FE5F1E;
     border-bottom: 1px dashed #FE5F1E;
+  }
+
+  &__ascIcon {
+    display: block;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 815px) {
+  .sort {
+    align-self: flex-end;
   }
 }

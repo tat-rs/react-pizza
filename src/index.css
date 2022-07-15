@@ -15,6 +15,10 @@
   -moz-text-size-adjust: 100%;
 }
 
+.main {
+  flex-grow: 1;
+}
+
 @media (max-width: 815px) {
   .page {
     padding: 20px;

@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
-import { sort } from '../../utils/constants';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { category } from '../../utils/constants';
 import Category from '../Category/Category';
 import styles from './Сategories.module.scss';
 
-function Сategories() {
-  const [isActiveSort, setIsActiveSort] = useState('');
+function Сategories({
+  categoryId,
+  changeCategory,
+}) {
   return (
     <ul className={styles.category}>
       {
-        sort.map((el, i) => (
+        category.map((el) => (
           // eslint-disable-next-line react/no-array-index-key
-          <li key={i}>
-            <Category item={el} setIsActiveSort={setIsActiveSort} isActiveSort={isActiveSort} />
+          <li key={el.id}>
+            <Category item={el} categoryId={categoryId} changeCategory={changeCategory} />
           </li>
         ))
       }
     </ul>
   );
 }
+
+Сategories.propTypes = {
+  categoryId: PropTypes.number.isRequired,
+  changeCategory: PropTypes.func.isRequired,
+};
 
 export default Сategories;

@@ -1,20 +1,14 @@
-.main {
-  flex-grow: 1;
-
-  &__sort {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    margin: 40px 0 32px;
-  }
+.sort {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 40px 0 32px;
 }
 
 @media (max-width: 815px) {
-  .main {
-    &__sort {
-      flex-direction: column;
-      gap: 15px;
-      margin: 20px 0;
-    }
+  .sort {
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
   }
 }

@@ -3,28 +3,31 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Category.module.scss';
 
-function Category({ item, setIsActiveSort, isActiveSort }) {
+function Category({ item, categoryId, changeCategory }) {
+  const onClick = () => {
+    changeCategory(item.id);
+  };
+
   return (
     <button
       className={classNames(styles.item, {
-        [styles.item_active]: isActiveSort === item,
+        [styles.item_active]: categoryId === item.id,
       })}
-      onClick={() => setIsActiveSort(item)}
+      onClick={onClick}
       type="button"
     >
-      {item}
+      {item.name}
     </button>
   );
 }
 
-Category.defaultProps = {
-  isActiveSort: null,
-};
-
 Category.propTypes = {
-  item: PropTypes.string.isRequired,
-  setIsActiveSort: PropTypes.func.isRequired,
-  isActiveSort: PropTypes.string,
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+  changeCategory: PropTypes.func.isRequired,
+  categoryId: PropTypes.number.isRequired,
 };
 
 export default Category;

@@ -1,8 +1,8 @@
 .popup {
   position: absolute;
-  bottom: -137px;
+  bottom: -282px;
   right: 0;
-  width: 132px;
+  width: 152px;
   box-sizing: border-box;
   padding: 13px 0;
   background-color: #FFFFFF;
@@ -21,6 +21,8 @@
     font-size: 14px;
     line-height: 17px;
     padding: 10px 14px;
+    display: flex;
+    align-items: center;
 
     &:hover {
       cursor: pointer;
@@ -34,5 +36,27 @@
       font-weight: 700;
       color: #FE5F1E;
     }
+  }
+
+  &__title {
+    margin: 0 8px 0 0 ;
+  }
+
+  &__icon {
+    display: block;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 1315px) {
+  .popup {
+    bottom: -252px;
+  }
+}
+
+@media (max-width: 815px) {
+  .popup {
+    bottom: -292px;
   }
 }

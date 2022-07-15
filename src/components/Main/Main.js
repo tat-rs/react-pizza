@@ -6,29 +6,63 @@ import PopupSort from '../PopupSort/PopupSort';
 import Menu from '../Menu/Menu';
 import styles from './Main.module.scss';
 
-function Main({ pizzas, isLoading }) {
+function Main({
+  pizzas,
+  isLoading,
+  categoryId,
+  changeCategory,
+  sortType,
+  setSortType,
+}) {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
-  function handleChangePopup() {
+  const handleChangePopup = () => {
     setIsOpenPopup(!isOpenPopup);
-  }
+  };
+
+  const closePopup = () => {
+    setIsOpenPopup(false);
+  };
   return (
-    <main className={styles.main}>
-      <div className={styles.main__sort}>
-        <Сategories />
-        <Sort isOpenPopup={isOpenPopup} handleChangePopup={() => handleChangePopup()} />
+    <>
+      <div className={styles.sort}>
+        <Сategories
+          categoryId={categoryId}
+          changeCategory={changeCategory}
+        />
+        <Sort
+          isOpenPopup={isOpenPopup}
+          handleChangePopup={handleChangePopup}
+          sortType={sortType}
+        />
         {
-          isOpenPopup && <PopupSort />
+          isOpenPopup
+            && (
+            <PopupSort
+              sortType={sortType}
+              setSortType={setSortType}
+              closePopup={closePopup}
+            />
+            )
         }
       </div>
       <Menu pizzas={pizzas} isLoading={isLoading} />
-    </main>
+    </>
   );
 }
 
 Main.propTypes = {
   pizzas: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   isLoading: PropTypes.bool.isRequired,
+  categoryId: PropTypes.number.isRequired,
+  changeCategory: PropTypes.func.isRequired,
+  sortType: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    property: PropTypes.string.isRequired,
+    asc: PropTypes.bool.isRequired,
+  }).isRequired,
+  setSortType: PropTypes.func.isRequired,
 };
 
 export default Main;
