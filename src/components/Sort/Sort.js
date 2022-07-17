@@ -25,12 +25,12 @@ function Sort({ handleChangePopup, sortType }) {
         </span>
       </p>
       {
-          sortType.asc ? (
-            <img src={ArrowUp} alt="Сортировка по возрастанию" className={styles.sort__ascIcon} />
-          ) : (
-            <img src={ArrowDown} alt="Сортировка по убыванию" className={styles.sort__ascIcon} />
-          )
-        }
+        sortType.asc ? (
+          <img src={ArrowUp} alt="Сортировка по возрастанию" className={styles.sort__ascIcon} />
+        ) : (
+          <img src={ArrowDown} alt="Сортировка по убыванию" className={styles.sort__ascIcon} />
+        )
+      }
     </div>
   );
 }

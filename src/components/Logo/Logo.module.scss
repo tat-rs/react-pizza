@@ -4,6 +4,7 @@
   text-decoration: none;
   color: #181818;
   font-family: 'Raleway', Arial, Helvetica, sans-serif;
+  margin-right: 20px;
 
   &__image {
     width: 38px;
@@ -32,8 +33,16 @@
   }
 }
 
+@media (max-width: 1020px) {
+  .logo {
+    margin-bottom: 25px;
+    margin-right: 0;
+  }
+}
+
 @media (max-width: 680px) {
   .logo {
+    margin-bottom: 0;
     &__desc {
       display: none;
     }

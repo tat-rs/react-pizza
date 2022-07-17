@@ -20,6 +20,7 @@ export const category = [
     name: 'Закрытые',
   },
 ];
+
 export const type = ['тонкое', 'традиционное'];
 
 export const sortTypies = [
@@ -55,5 +56,14 @@ export const sortTypies = [
     asc: false,
   },
 ];
+
+export const defaultSortType = {
+  id: 0,
+  title: 'популярности',
+  property: 'rating',
+  asc: true,
+};
+
+export const BASE_COUNT_PIZZA = 8;
 
 export const BASE_URL_API = 'https://62cb2ecc3e924a0128649d53.mockapi.io/items';
