@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header/Header';
@@ -5,7 +6,7 @@ import Main from '../components/Main/Main';
 import { SearchContext } from '../context/SearchContext';
 import '../index.css';
 import { setCategoryId, setSortType } from '../store/filter/filterSlice';
-import api from '../utils/api';
+import { BASE_URL_API } from '../utils/constants';
 
 function Home() {
   const [pizzas, setPizzas] = useState([]);
@@ -14,16 +15,17 @@ function Home() {
   const { categoryId, sort } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
+  const category = categoryId > 0 ? categoryId : '';
+  const asc = sort.asc ? 'asc' : 'desc';
+  const property = sort.property === 'name' ? 'title' : sort.property;
+
   useEffect(() => {
     setIsLoading(true);
-    api.getPizzas(categoryId, sort)
+    axios.get(`${BASE_URL_API}?category=${category}&sortBy=${property}&order=${asc}`)
       .then((res) => {
-        setPizzas(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => setIsLoading(false));
+        setPizzas(res.data);
+        setIsLoading(false);
+      });
   }, [categoryId, sort]);
 
   const changeCategory = (id) => {
