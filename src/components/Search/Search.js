@@ -1,11 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
+import debounce from 'lodash.debounce';
 import { SearchContext } from '../../context/SearchContext';
 import styles from './Search.module.scss';
 
 function Search() {
-  const { searchValue, setSearchValue } = useContext(SearchContext);
+  const { setSearchValue } = useContext(SearchContext);
+  const [value, setValue] = useState('');
+
+  const updateSearchValue = useCallback(
+    debounce((str) => {
+      setSearchValue(str);
+    }, 1000),
+    [],
+  );
+
   function handleChangeSearchValue(evt) {
-    setSearchValue(evt.target.value);
+    setValue(evt.target.value);
+    updateSearchValue(evt.target.value);
+  }
+
+  function onClickClear() {
+    setSearchValue('');
+    setValue('');
   }
 
   return (
@@ -23,9 +39,21 @@ function Search() {
         className={styles.search__input}
         id="searchPizza"
         placeholder="Поиск..."
-        value={searchValue}
+        value={value}
         onChange={handleChangeSearchValue}
       />
+      {
+        value && (
+          <svg
+            className={styles.search__clear}
+            onClick={onClickClear}
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
+          </svg>
+        )
+      }
     </label>
   );
 }
