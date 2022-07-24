@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
-
+import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header/Header';
 import Main from '../components/Main/Main';
 import { SearchContext } from '../context/SearchContext';
 import '../index.css';
+import { setCategoryId, setSortType } from '../store/filter/filterSlice';
 import api from '../utils/api';
-import { defaultSortType } from '../utils/constants';
 
 function Home() {
   const [pizzas, setPizzas] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryId, setCategoryId] = useState(0);
-  const [sortType, setSortType] = useState(defaultSortType);
   const [searchValue, setSearchValue] = useState('');
+  const { categoryId, sort } = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setIsLoading(true);
-    api.getPizzas(categoryId, sortType)
+    api.getPizzas(categoryId, sort)
       .then((res) => {
         setPizzas(res);
       })
@@ -24,10 +24,14 @@ function Home() {
         console.log(err);
       })
       .finally(() => setIsLoading(false));
-  }, [categoryId, sortType]);
+  }, [categoryId, sort]);
 
   const changeCategory = (id) => {
-    setCategoryId(id);
+    dispatch(setCategoryId(id));
+  };
+
+  const changeSortType = (type) => {
+    dispatch(setSortType(type));
   };
 
   return (
@@ -40,8 +44,8 @@ function Home() {
           isLoading={isLoading}
           categoryId={categoryId}
           changeCategory={changeCategory}
-          sortType={sortType}
-          setSortType={setSortType}
+          sortType={sort}
+          setSortType={changeSortType}
         />
       </main>
     </SearchContext.Provider>
