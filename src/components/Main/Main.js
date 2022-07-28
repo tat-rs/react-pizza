@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Sort from '../Sort/Sort';
 import Сategories from '../Сategories/Сategories';
@@ -9,42 +9,49 @@ import styles from './Main.module.scss';
 function Main({
   pizzas,
   isLoading,
-  categoryId,
-  changeCategory,
-  sortType,
-  setSortType,
 }) {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
+  const sortRef = useRef();
+
+  const closePopup = () => {
+    setIsOpenPopup(false);
+  };
+
+  useEffect(() => {
+    const handleUpdateClick = (event) => {
+      if (!event.path.includes(sortRef.current)) {
+        closePopup();
+      }
+    };
+    document.body.addEventListener('click', handleUpdateClick);
+
+    return () => {
+      document.body.removeEventListener('click', handleUpdateClick);
+    };
+  }, []);
 
   const handleChangePopup = () => {
     setIsOpenPopup(!isOpenPopup);
   };
 
-  const closePopup = () => {
-    setIsOpenPopup(false);
-  };
   return (
     <>
-      <div className={styles.sort}>
-        <Сategories
-          categoryId={categoryId}
-          changeCategory={changeCategory}
-        />
-        <Sort
-          isOpenPopup={isOpenPopup}
-          handleChangePopup={handleChangePopup}
-          sortType={sortType}
-        />
-        {
+      <div className={styles.sort} ref={sortRef}>
+        <Сategories />
+        <div className={styles.sort__ref}>
+          <Sort
+            isOpenPopup={isOpenPopup}
+            handleChangePopup={handleChangePopup}
+          />
+          {
           isOpenPopup
             && (
             <PopupSort
-              sortType={sortType}
-              setSortType={setSortType}
               closePopup={closePopup}
             />
             )
         }
+        </div>
       </div>
       <Menu pizzas={pizzas} isLoading={isLoading} />
     </>
@@ -54,15 +61,6 @@ function Main({
 Main.propTypes = {
   pizzas: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   isLoading: PropTypes.bool.isRequired,
-  categoryId: PropTypes.number.isRequired,
-  changeCategory: PropTypes.func.isRequired,
-  sortType: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    property: PropTypes.string.isRequired,
-    asc: PropTypes.bool.isRequired,
-  }).isRequired,
-  setSortType: PropTypes.func.isRequired,
 };
 
 export default Main;

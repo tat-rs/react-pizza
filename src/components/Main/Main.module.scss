@@ -3,6 +3,10 @@
   justify-content: space-between;
   position: relative;
   margin: 40px 0 32px;
+
+  &__ref {
+    align-self:flex-end
+  }
 }
 
 @media (max-width: 815px) {

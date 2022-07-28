@@ -1,6 +1,6 @@
 .popup {
   position: absolute;
-  bottom: -282px;
+  bottom: -248px;
   right: 0;
   width: 152px;
   box-sizing: border-box;
@@ -46,17 +46,5 @@
     display: block;
     width: 14px;
     height: 14px;
-  }
-}
-
-@media (max-width: 1315px) {
-  .popup {
-    bottom: -252px;
-  }
-}
-
-@media (max-width: 815px) {
-  .popup {
-    bottom: -292px;
   }
 }

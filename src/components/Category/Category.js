@@ -1,11 +1,16 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Category.module.scss';
+import { setCategoryId } from '../../store/filter/filterSlice';
 
-function Category({ item, categoryId, changeCategory }) {
+function Category({ item }) {
+  const { categoryId } = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
+
   const onClick = () => {
-    changeCategory(item.id);
+    dispatch(setCategoryId(item.id));
   };
 
   return (
@@ -26,8 +31,6 @@ Category.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
   }).isRequired,
-  changeCategory: PropTypes.func.isRequired,
-  categoryId: PropTypes.number.isRequired,
 };
 
 export default Category;
