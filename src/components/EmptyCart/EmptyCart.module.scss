@@ -45,8 +45,11 @@
 
   &__btnBack {
     @include btn ();
-    display: block;
+    display: flex;
+    justify-content: center;
     margin: 0 auto;
+    max-width: 400px;
+    text-decoration: none;
     background-color: #282828;
     color: #fff;
   }

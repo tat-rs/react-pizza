@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import EmptyCartImage from '../../images/empty-cart.png';
 import SadSmile from '../../images/sad-smile.png';
 import styles from './EmptyCart.module.scss';
@@ -15,7 +16,7 @@ function EmptyCart() {
         Для того, чтобы заказать пиццу, перейди на главную страницу.
       </p>
       <img className={styles.EmptyCart__image} src={EmptyCartImage} alt="Пустая корзина" />
-      <button className={styles.EmptyCart__btnBack} type="button">Вернуться назад</button>
+      <Link className={styles.EmptyCart__btnBack} to="/">Вернуться назад</Link>
     </div>
   );
 }

@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
 import { type } from '../../utils/constants';
 import styles from './Pizza.module.scss';
+import { addItem } from '../../store/cart/cartSlice';
 
 function Pizza({ pizza }) {
-  const [isSelectedType, setIsSelectedType] = useState('');
-  const [isSelectedDiameter, setIsSelectedDiameter] = useState('');
+  const [isSelectedType, setIsSelectedType] = useState(type[0]);
+  const [isSelectedSize, setIsSelectedSize] = useState(pizza.sizes[0]);
   const [countPizza, setCountPizza] = useState(0);
+  const dispatch = useDispatch();
 
   function addPizza() {
+    dispatch(addItem({
+      id: pizza.id,
+      title: pizza.title,
+      imageUrl: pizza.imageUrl,
+      type: isSelectedType,
+      size: isSelectedSize,
+      price: pizza.price,
+    }));
     setCountPizza(countPizza + 1);
   }
 
@@ -44,10 +55,10 @@ function Pizza({ pizza }) {
                 // eslint-disable-next-line react/no-array-index-key
                 key={index}
                 className={classNames(styles.sort__item, {
-                  [styles.sort__item_active]: isSelectedDiameter === item,
+                  [styles.sort__item_active]: isSelectedSize === item,
                 })}
-                onClick={() => setIsSelectedDiameter(item)}
-                onKeyDown={() => setIsSelectedDiameter(item)}
+                onClick={() => setIsSelectedSize(item)}
+                onKeyDown={() => setIsSelectedSize(item)}
                 role="menuitem"
               >
                 {`${item} см.`}
@@ -75,6 +86,7 @@ function Pizza({ pizza }) {
 
 Pizza.propTypes = {
   pizza: PropTypes.shape({
+    id: PropTypes.number,
     title: PropTypes.string,
     imageUrl: PropTypes.string,
     sizes: PropTypes.arrayOf(PropTypes.number),

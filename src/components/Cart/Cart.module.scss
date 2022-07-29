@@ -78,9 +78,11 @@
 
   &__navBack {
     @include btn ();
-    color: #CACACA;
-    border-color: #D3D3D3;
-    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    background-color: #282828;
+    color: #fff;
+    text-decoration: none;
   }
 
   &__navBackIcon {
