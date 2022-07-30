@@ -2,15 +2,18 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import Heading from '../Heading/Heading';
 import styles from './Menu.module.scss';
 import Loader from '../Loader/Loader';
 import Pizza from '../Pizza/Pizza';
+import Error from '../Error/Error';
 import { BASE_COUNT_PIZZA } from '../../utils/constants';
 import { SearchContext } from '../../context/SearchContext';
 
 function Menu({ pizzas, isLoading }) {
   const { searchValue } = useContext(SearchContext);
+  const { error } = useSelector((state) => state.pizzas);
 
   const pizzasList = pizzas
     .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))
@@ -27,11 +30,17 @@ function Menu({ pizzas, isLoading }) {
   return (
     <section className={styles.pizzas}>
       <Heading text="Все пиццы" className={styles.pizzas__heading} />
-      <ul className={styles.pizzas__list}>
-        {
+      {
+        error ? (
+          <Error />
+        ) : (
+          <ul className={styles.pizzas__list}>
+            {
           isLoading ? skeletons : pizzasList
         }
-      </ul>
+          </ul>
+        )
+      }
     </section>
   );
 }
