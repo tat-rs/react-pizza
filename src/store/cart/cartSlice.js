@@ -13,8 +13,10 @@ const cartSlice = createSlice({
   reducers: {
     addItem(state, action) {
       const { id, size, type } = action.payload;
-      const findItem = state.items.find((el) => el.id === id);
-      if (findItem && findItem.size === size && findItem.type === type) {
+      const findItem = state.items.find((el) => el.id === id
+      && el.type === type
+      && el.size === size);
+      if (findItem) {
         // eslint-disable-next-line no-plusplus
         findItem.count++;
       } else {
@@ -27,7 +29,10 @@ const cartSlice = createSlice({
       state.totalCount = state.items.reduce((sum, obj) => sum + obj.count, 0);
     },
     removeItem(state, action) {
-      const findItem = state.items.find((el) => el.id === action.payload.id);
+      const { id, size, type } = action.payload;
+      const findItem = state.items.find((el) => el.id === id
+      && el.type === type
+      && el.size === size);
       if (findItem) {
         // eslint-disable-next-line no-plusplus
         findItem.count--;
@@ -36,12 +41,21 @@ const cartSlice = createSlice({
       }
     },
     removeItems(state, action) {
-      state.items = state.items.filter((obj) => obj.id !== action.payload.id);
+      const { id, size, type } = action.payload;
+      state.items.forEach((el, i) => {
+        if (el.id === id
+          && el.type === type
+          && el.size === size) {
+          state.items.splice(i, 1);
+        }
+      });
       state.totalPrice = state.items.reduce((sum, obj) => sum + (obj.count * obj.price), 0);
       state.totalCount = state.items.reduce((sum, obj) => sum + obj.count, 0);
     },
     clearItem(state) {
       state.items = [];
+      state.totalCount = 0;
+      state.totalPrice = 0;
     },
   },
 });

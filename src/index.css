@@ -17,6 +17,7 @@
 
 .main {
   flex-grow: 1;
+  min-height: 100%;
 }
 
 @media (max-width: 815px) {
