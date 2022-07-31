@@ -9,10 +9,13 @@ import Heading from '../Heading/Heading';
 import styles from './Cart.module.scss';
 
 import EmptyCart from '../EmptyCart/EmptyCart';
-import { clearItem } from '../../store/cart/cartSlice';
+import { clearItem } from '../../store/cart/slice';
+import { selectItems, selectTotalCount, selectTotalPrice } from '../../store/cart/selectors';
 
 function Cart() {
-  const { items, totalPrice, totalCount } = useSelector((state) => state.cart);
+  const items = useSelector(selectItems);
+  const totalPrice = useSelector(selectTotalPrice);
+  const totalCount = useSelector(selectTotalCount);
   const dispatch = useDispatch();
 
   function clearCart() {

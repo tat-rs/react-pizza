@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { type } from '../../utils/constants';
 import styles from './Pizza.module.scss';
-import { addItem } from '../../store/cart/cartSlice';
+import { addItem } from '../../store/cart/slice';
 
 function Pizza({ pizza }) {
   const [isSelectedType, setIsSelectedType] = useState(type[0]);

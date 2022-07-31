@@ -3,10 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Category.module.scss';
-import { setCategoryId } from '../../store/filter/filterSlice';
+import { setCategoryId } from '../../store/filter/slice';
+import { selectCategoryId } from '../../store/filter/selectors';
 
 function Category({ item }) {
-  const { categoryId } = useSelector((state) => state.filter);
+  const categoryId = useSelector(selectCategoryId);
   const dispatch = useDispatch();
 
   const onClick = () => {

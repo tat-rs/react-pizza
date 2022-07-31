@@ -1,19 +1,21 @@
+/* eslint-disable max-len */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-array-index-key */
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import Heading from '../Heading/Heading';
 import styles from './Menu.module.scss';
 import Loader from '../Loader/Loader';
 import Pizza from '../Pizza/Pizza';
-import Error from '../Error/Error';
-import { BASE_COUNT_PIZZA } from '../../utils/constants';
-import { SearchContext } from '../../context/SearchContext';
+import { BASE_COUNT_PIZZA, NOTFOUND_MESSAGE } from '../../utils/constants';
+import { selectIsLoading, selectPizzas } from '../../store/pizzas/selectors';
+import { selectSearchValue } from '../../store/filter/selectors';
+import Message from '../Message/Message';
 
-function Menu({ pizzas, isLoading }) {
-  const { searchValue } = useContext(SearchContext);
-  const { error } = useSelector((state) => state.pizzas);
+function Menu() {
+  const searchValue = useSelector(selectSearchValue);
+  const pizzas = useSelector(selectPizzas);
+  const isLoading = useSelector(selectIsLoading);
 
   const pizzasList = pizzas
     .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))
@@ -31,23 +33,18 @@ function Menu({ pizzas, isLoading }) {
     <section className={styles.pizzas}>
       <Heading text="Все пиццы" className={styles.pizzas__heading} />
       {
-        error ? (
-          <Error />
+        pizzasList.length === 0 && searchValue !== '' ? (
+          <Message text={NOTFOUND_MESSAGE} />
         ) : (
           <ul className={styles.pizzas__list}>
             {
-          isLoading ? skeletons : pizzasList
-        }
+              isLoading ? skeletons : pizzasList
+            }
           </ul>
         )
       }
     </section>
   );
 }
-
-Menu.propTypes = {
-  pizzas: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  isLoading: PropTypes.bool.isRequired,
-};
 
 export default Menu;

@@ -5,6 +5,7 @@ import { defaultSortType } from '../../utils/constants';
 const initialState = {
   categoryId: 0,
   sort: defaultSortType,
+  searchValue: '',
 };
 
 const filterSlice = createSlice({
@@ -17,9 +18,12 @@ const filterSlice = createSlice({
     setSortType(state, action) {
       state.sort = action.payload;
     },
+    setSearchValue(state, action) {
+      state.searchValue = action.payload;
+    },
   },
 });
 
-export const { setCategoryId, setSortType } = filterSlice.actions;
+export const { setCategoryId, setSortType, setSearchValue } = filterSlice.actions;
 
 export default filterSlice.reducer;

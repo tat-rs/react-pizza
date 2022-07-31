@@ -1,16 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import Sort from '../Sort/Sort';
 import Сategories from '../Сategories/Сategories';
 import PopupSort from '../PopupSort/PopupSort';
 import Menu from '../Menu/Menu';
 import styles from './Main.module.scss';
+import { selectError } from '../../store/pizzas/selectors';
+import Message from '../Message/Message';
+import { SERVER_ERROR_MESSAGE } from '../../utils/constants';
 
-function Main({
-  pizzas,
-  isLoading,
-}) {
+function Main() {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
+  const error = useSelector(selectError);
   const sortRef = useRef();
 
   const closePopup = () => {
@@ -53,14 +54,11 @@ function Main({
         }
         </div>
       </div>
-      <Menu pizzas={pizzas} isLoading={isLoading} />
+      {
+        error ? <Message text={SERVER_ERROR_MESSAGE} /> : <Menu />
+      }
     </>
   );
 }
-
-Main.propTypes = {
-  pizzas: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  isLoading: PropTypes.bool.isRequired,
-};
 
 export default Main;

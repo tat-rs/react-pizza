@@ -5,9 +5,10 @@ import SortIcon from '../../images/sort.svg';
 import ArrowDown from '../../images/arrow-down.png';
 import ArrowUp from '../../images/arrow-up.png';
 import styles from './Sort.module.scss';
+import { selectSort } from '../../store/filter/selectors';
 
 function Sort({ handleChangePopup }) {
-  const { sort } = useSelector((state) => state.filter);
+  const sort = useSelector(selectSort);
 
   return (
     <div className={styles.sort}>

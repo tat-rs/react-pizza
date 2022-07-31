@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import DeletePizza from '../../images/delete-pizza.svg';
+import { selectItems } from '../../store/cart/selectors';
 import {
   addItem, removeItem, removeItems,
-} from '../../store/cart/cartSlice';
+} from '../../store/cart/slice';
 import styles from './CartList.module.scss';
 
 function CartList() {
-  const { items } = useSelector((state) => state.cart);
+  const items = useSelector(selectItems);
   const dispatch = useDispatch();
 
   function addPizza(pizza) {

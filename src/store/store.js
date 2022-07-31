@@ -1,8 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 import { configureStore } from '@reduxjs/toolkit';
-import filterSlice from './filter/filterSlice';
-import cartSlice from './cart/cartSlice';
-import pizzasSlice from './pizzas/pizzasSlice';
+import filterSlice from './filter/slice';
+import cartSlice from './cart/slice';
+import pizzasSlice from './pizzas/slice';
 
 export const store = configureStore({
   reducer: {

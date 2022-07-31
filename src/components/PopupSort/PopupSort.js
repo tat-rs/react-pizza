@@ -6,10 +6,11 @@ import styles from './PopupSort.module.scss';
 import ArrowDown from '../../images/arrow-down.png';
 import ArrowUp from '../../images/arrow-up.png';
 import { sortTypies } from '../../utils/constants';
-import { setSortType } from '../../store/filter/filterSlice';
+import { setSortType } from '../../store/filter/slice';
+import { selectSort } from '../../store/filter/selectors';
 
 function PopupSort({ closePopup }) {
-  const { sort } = useSelector((state) => state.filter);
+  const sort = useSelector(selectSort);
   const dispatch = useDispatch();
 
   function onChangeSortProperty(type) {

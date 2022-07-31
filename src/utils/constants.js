@@ -67,3 +67,7 @@ export const defaultSortType = {
 export const BASE_COUNT_PIZZA = 8;
 
 export const BASE_URL_API = 'https://62cb2ecc3e924a0128649d53.mockapi.io/items';
+
+export const SERVER_ERROR_MESSAGE = 'Произошла ошибка при запросе к серверу :( Попробуйте позже';
+
+export const NOTFOUND_MESSAGE = 'По вашему запросу ничего не найдено. Выберите пиццу из каталога "Все"';

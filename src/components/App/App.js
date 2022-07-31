@@ -6,10 +6,11 @@ import Home from '../../pages/Home';
 import NotFoundPage from '../../pages/NotFoundPage';
 import styles from './App.module.scss';
 import fetchPizzas from '../../store/pizzas/thunk';
+import { selectCategoryId, selectSort } from '../../store/filter/selectors';
 
 function App() {
-  const { categoryId, sort } = useSelector((state) => state.filter);
-  const { pizzas, isLoading } = useSelector((state) => state.pizzas);
+  const categoryId = useSelector(selectCategoryId);
+  const sort = useSelector(selectSort);
 
   const dispatch = useDispatch();
 
@@ -35,12 +36,7 @@ function App() {
         <Route
           exact
           path="/"
-          element={(
-            <Home
-              pizzas={pizzas}
-              isLoading={isLoading}
-            />
-          )}
+          element={<Home />}
         />
         <Route path="/cart" element={<CartPage />} />
         <Route path="*" element={<NotFoundPage />} />
