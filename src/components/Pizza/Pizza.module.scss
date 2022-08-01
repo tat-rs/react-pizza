@@ -1,12 +1,18 @@
 .pizza {
   width: 100%;
   max-width: 500px;
+  position: relative;
 
   &__image {
     display: block;
     width: 260px;
     height: 260px;
     margin: 0 auto 11px;
+    transition: transform .2s;
+    
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__title {
@@ -79,6 +85,30 @@
     border-radius: 50%;
     color: #FFF;
   }
+
+  &__desc {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: calc(100% - 16px);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    min-height: fit-content;
+    box-sizing: border-box;
+    padding: 8px;
+  }
+
+  &__descText {
+    margin: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFF;
+  }
+}
+
+.pizza__image + .pizza__desc {
+  color: #EB5A1E;
 }
 
 .sort {

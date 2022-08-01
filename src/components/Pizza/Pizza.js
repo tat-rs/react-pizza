@@ -10,7 +10,16 @@ function Pizza({ pizza }) {
   const [isSelectedType, setIsSelectedType] = useState(type[0]);
   const [isSelectedSize, setIsSelectedSize] = useState(pizza.sizes[0]);
   const [countPizza, setCountPizza] = useState(0);
+  const [isOPenDesc, setIsOpenDesc] = useState(false);
   const dispatch = useDispatch();
+
+  const handleMouseOver = () => {
+    setIsOpenDesc(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsOpenDesc(false);
+  };
 
   function addPizza() {
     dispatch(addItem({
@@ -26,7 +35,15 @@ function Pizza({ pizza }) {
 
   return (
     <li className={styles.pizza}>
-      <img src={pizza.imageUrl} alt={pizza.title} className={styles.pizza__image} />
+      <img
+        src={pizza.imageUrl}
+        alt={pizza.title}
+        className={styles.pizza__image}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+        onFocus={handleMouseOver}
+        onBlur={handleMouseOver}
+      />
       <h2 className={styles.pizza__title}>{pizza.title}</h2>
       <div className={styles.sort}>
         <ul className={styles.sort__list}>
@@ -80,6 +97,15 @@ function Pizza({ pizza }) {
           }
         </button>
       </div>
+      {isOPenDesc && (
+      <div
+        className={styles.pizza__desc}
+        onMouseOver={handleMouseOver}
+        onFocus={handleMouseOver}
+      >
+        <p className={styles.pizza__descText}>{pizza.desc}</p>
+      </div>
+      )}
     </li>
   );
 }
@@ -93,6 +119,7 @@ Pizza.propTypes = {
     price: PropTypes.number,
     category: PropTypes.number,
     rating: PropTypes.number,
+    desc: PropTypes.string,
   }).isRequired,
 };
 

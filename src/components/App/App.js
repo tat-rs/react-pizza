@@ -12,12 +12,16 @@ function App() {
   const categoryId = useSelector(selectCategoryId);
   const sort = useSelector(selectSort);
 
+  const category = categoryId > 0 ? categoryId : '';
+  const asc = sort.asc ? 'asc' : 'desc';
+  const property = sort.property === 'name' ? 'title' : sort.property;
+
   const dispatch = useDispatch();
 
   async function getPizzas() {
-    const category = categoryId > 0 ? categoryId : '';
+    /* const category = categoryId > 0 ? categoryId : '';
     const asc = sort.asc ? 'asc' : 'desc';
-    const property = sort.property === 'name' ? 'title' : sort.property;
+    const property = sort.property === 'name' ? 'title' : sort.property; */
 
     dispatch(fetchPizzas({
       category,
@@ -35,7 +39,7 @@ function App() {
       <Routes>
         <Route
           exact
-          path="/"
+          path="/menu"
           element={<Home />}
         />
         <Route path="/cart" element={<CartPage />} />
