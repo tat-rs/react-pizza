@@ -1,12 +1,18 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Category.module.scss';
 import { setCategoryId } from '../../store/filter/slice';
 import { selectCategoryId } from '../../store/filter/selectors';
 
-function Category({ item }) {
+type CategoryItem = {
+  item: {
+    id: number;
+    name: string;
+  }
+}
+
+function Category({ item }: CategoryItem) {
   const categoryId = useSelector(selectCategoryId);
   const dispatch = useDispatch();
 
@@ -26,12 +32,5 @@ function Category({ item }) {
     </button>
   );
 }
-
-Category.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-  }).isRequired,
-};
 
 export default Category;

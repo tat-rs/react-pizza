@@ -12,15 +12,15 @@ import { SERVER_ERROR_MESSAGE } from '../../utils/constants';
 function Main() {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const error = useSelector(selectError);
-  const sortRef = useRef();
+  const sortRef = useRef(null);
 
   const closePopup = () => {
     setIsOpenPopup(false);
   };
 
   useEffect(() => {
-    const handleUpdateClick = (event) => {
-      if (!event.path.includes(sortRef.current)) {
+    const handleUpdateClick = (event: MouseEvent) => {
+      if (sortRef.current && !event.composedPath().includes(sortRef.current)) {
         closePopup();
       }
     };
@@ -41,7 +41,6 @@ function Main() {
         <Сategories />
         <div className={styles.sort__ref}>
           <Sort
-            isOpenPopup={isOpenPopup}
             handleChangePopup={handleChangePopup}
           />
           {

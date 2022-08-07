@@ -12,7 +12,7 @@ function Header() {
     <header className={styles.header}>
       <Logo />
       {
-        location.pathname === '/menu' && (
+        location.pathname === '/' && (
           <div className={styles.header__item}>
             <Search />
             <CartButton />

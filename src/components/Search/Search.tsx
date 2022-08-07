@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import debounce from 'lodash.debounce';
 import { useDispatch } from 'react-redux';
 import styles from './Search.module.scss';
@@ -9,13 +9,13 @@ function Search() {
   const dispatch = useDispatch();
 
   const updateSearchValue = useCallback(
-    debounce((str) => {
+    debounce((str: string) => {
       dispatch(setSearchValue(str));
     }, 1000),
     [],
   );
 
-  function handleChangeSearchValue(evt) {
+  function handleChangeSearchValue(evt: ChangeEvent<HTMLInputElement>) {
     setValue(evt.target.value);
     updateSearchValue(evt.target.value);
   }

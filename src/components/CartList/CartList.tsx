@@ -11,11 +11,11 @@ function CartList() {
   const items = useSelector(selectItems);
   const dispatch = useDispatch();
 
-  function addPizza(pizza) {
+  function addPizza(pizza: any) {
     dispatch(addItem(pizza));
   }
 
-  function minusCount(pizza) {
+  function minusCount(pizza: any) {
     if (pizza.count > 1) {
       dispatch(removeItem(pizza));
     } else {
@@ -23,7 +23,7 @@ function CartList() {
     }
   }
 
-  function removePizza(pizza) {
+  function removePizza(pizza: any) {
     dispatch(removeItems(pizza));
   }
 
@@ -31,7 +31,7 @@ function CartList() {
     <div className={styles.cart__container}>
       <ul className={styles.cart__list}>
         {
-          items.length > 0 && items.map((item, index) => (
+          items.length > 0 && items.map((item: any, index: number) => (
             // eslint-disable-next-line react/no-array-index-key
             <li className={styles.cart__item} key={index}>
               <div className={styles.cart__pizza}>

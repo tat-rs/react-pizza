@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import SortIcon from '../../images/sort.svg';
 import ArrowDown from '../../images/arrow-down.png';
@@ -7,7 +6,11 @@ import ArrowUp from '../../images/arrow-up.png';
 import styles from './Sort.module.scss';
 import { selectSort } from '../../store/filter/selectors';
 
-function Sort({ handleChangePopup }) {
+type SortItem = {
+  handleChangePopup: () => void;
+}
+
+function Sort({ handleChangePopup }: SortItem) {
   const sort = useSelector(selectSort);
 
   return (
@@ -46,9 +49,5 @@ function Sort({ handleChangePopup }) {
     </div>
   );
 }
-
-Sort.propTypes = {
-  handleChangePopup: PropTypes.func.isRequired,
-};
 
 export default Sort;

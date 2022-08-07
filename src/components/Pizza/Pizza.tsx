@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { type } from '../../utils/constants';
 import styles from './Pizza.module.scss';
 import { addItem } from '../../store/cart/slice';
 
-function Pizza({ pizza }) {
+type PizzaItem = {
+  pizza: {
+    id: number;
+    title: string;
+    imageUrl: string;
+    sizes: number[];
+    price: number;
+    category: number;
+    rating: number;
+    desc: string;
+  }
+}
+
+function Pizza({ pizza }: PizzaItem) {
   const [isSelectedType, setIsSelectedType] = useState(type[0]);
   const [isSelectedSize, setIsSelectedSize] = useState(pizza.sizes[0]);
   const [countPizza, setCountPizza] = useState(0);
@@ -109,18 +121,5 @@ function Pizza({ pizza }) {
     </li>
   );
 }
-
-Pizza.propTypes = {
-  pizza: PropTypes.shape({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    imageUrl: PropTypes.string,
-    sizes: PropTypes.arrayOf(PropTypes.number),
-    price: PropTypes.number,
-    category: PropTypes.number,
-    rating: PropTypes.number,
-    desc: PropTypes.string,
-  }).isRequired,
-};
 
 export default Pizza;

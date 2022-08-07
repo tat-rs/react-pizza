@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './PopupSort.module.scss';
@@ -9,11 +8,22 @@ import { sortTypies } from '../../utils/constants';
 import { setSortType } from '../../store/filter/slice';
 import { selectSort } from '../../store/filter/selectors';
 
-function PopupSort({ closePopup }) {
+type PopupSortItem = {
+  closePopup: () => void;
+}
+
+type SortTypeItem = {
+    id: number;
+    title: string;
+    property: string;
+    asc: boolean;
+}
+
+function PopupSort({ closePopup }: PopupSortItem) {
   const sort = useSelector(selectSort);
   const dispatch = useDispatch();
 
-  function onChangeSortProperty(type) {
+  function onChangeSortProperty(type: SortTypeItem) {
     dispatch(setSortType(type));
     closePopup();
   }
@@ -55,9 +65,5 @@ function PopupSort({ closePopup }) {
     </div>
   );
 }
-
-PopupSort.propTypes = {
-  closePopup: PropTypes.func.isRequired,
-};
 
 export default PopupSort;
