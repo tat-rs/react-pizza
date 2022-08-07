@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { type } from '../../utils/constants';
 import styles from './Pizza.module.scss';
-import { addItem } from '../../store/cart/slice';
+import { addItem, CartType } from '../../store/cart/slice';
 
 type PizzaItem = {
   pizza: {
@@ -15,6 +15,7 @@ type PizzaItem = {
     category: number;
     rating: number;
     desc: string;
+    count: number;
   }
 }
 
@@ -34,14 +35,20 @@ function Pizza({ pizza }: PizzaItem) {
   };
 
   function addPizza() {
-    dispatch(addItem({
+    const addedPizza: CartType = {
       id: pizza.id,
       title: pizza.title,
       imageUrl: pizza.imageUrl,
-      type: isSelectedType,
       size: isSelectedSize,
+      type: isSelectedType,
       price: pizza.price,
-    }));
+      category: pizza.category,
+      rating: pizza.rating,
+      desc: pizza.desc,
+      count: pizza.count,
+    };
+
+    dispatch(addItem(addedPizza));
     setCountPizza(countPizza + 1);
   }
 

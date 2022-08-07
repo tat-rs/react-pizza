@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Heading from '../Heading/Heading';
 import styles from './Menu.module.scss';
 import Loader from '../Loader/Loader';
@@ -12,6 +12,7 @@ import { selectIsLoading, selectPizzas } from '../../store/pizzas/selectors';
 import { selectCategoryId, selectSearchValue, selectSort } from '../../store/filter/selectors';
 import Message from '../Message/Message';
 import fetchPizzas from '../../store/pizzas/thunk';
+import { useAppDispatch } from '../../store/store';
 
 function Menu() {
   const searchValue = useSelector(selectSearchValue);
@@ -25,7 +26,7 @@ function Menu() {
   const asc = sort.asc ? 'asc' : 'desc';
   const property = sort.property === 'name' ? 'title' : sort.property;
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   async function getPizzas() {
     dispatch(fetchPizzas({

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import DeletePizza from '../../images/delete-pizza.svg';
 import { selectItems } from '../../store/cart/selectors';
 import {
-  addItem, removeItem, removeItems,
+  addItem, CartType, removeItem, removeItems,
 } from '../../store/cart/slice';
 import styles from './CartList.module.scss';
 
@@ -11,11 +11,11 @@ function CartList() {
   const items = useSelector(selectItems);
   const dispatch = useDispatch();
 
-  function addPizza(pizza: any) {
+  function addPizza(pizza: CartType) {
     dispatch(addItem(pizza));
   }
 
-  function minusCount(pizza: any) {
+  function minusCount(pizza: CartType) {
     if (pizza.count > 1) {
       dispatch(removeItem(pizza));
     } else {
@@ -23,7 +23,7 @@ function CartList() {
     }
   }
 
-  function removePizza(pizza: any) {
+  function removePizza(pizza: CartType) {
     dispatch(removeItems(pizza));
   }
 
