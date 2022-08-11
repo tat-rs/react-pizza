@@ -17,11 +17,13 @@ export type PizzaType = {
 interface PizzaItem {
   pizzas: PizzaType[];
   isLoading: boolean;
+  error: boolean;
 }
 
 const initialState: PizzaItem = {
   pizzas: [],
   isLoading: true,
+  error: false,
 };
 
 const pizzasSlice = createSlice({
@@ -36,14 +38,16 @@ const pizzasSlice = createSlice({
     builder.addCase(fetchPizzas.pending, (state) => {
       state.isLoading = true;
       state.pizzas = [];
+      state.error = false;
     });
     builder.addCase(fetchPizzas.fulfilled, (state, action) => {
       state.pizzas = action.payload;
       state.isLoading = false;
     });
-    builder.addCase(fetchPizzas.rejected, ((state) => {
+    builder.addCase(fetchPizzas.rejected, ((state, action) => {
       state.isLoading = false;
       state.pizzas = [];
+      state.error = !!action.payload;
     }));
   },
 });

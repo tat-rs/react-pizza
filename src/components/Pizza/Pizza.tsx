@@ -22,8 +22,8 @@ type PizzaItem = {
 function Pizza({ pizza }: PizzaItem) {
   const [isSelectedType, setIsSelectedType] = useState(type[0]);
   const [isSelectedSize, setIsSelectedSize] = useState(pizza.sizes[0]);
-  const [countPizza, setCountPizza] = useState(0);
   const [isOPenDesc, setIsOpenDesc] = useState(false);
+  const [countPizza, setCountPizza] = useState(0);
   const dispatch = useDispatch();
 
   const handleMouseOver = () => {
@@ -45,7 +45,7 @@ function Pizza({ pizza }: PizzaItem) {
       category: pizza.category,
       rating: pizza.rating,
       desc: pizza.desc,
-      count: pizza.count,
+      count: pizza.count + 1,
     };
 
     dispatch(addItem(addedPizza));

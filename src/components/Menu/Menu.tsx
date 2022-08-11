@@ -22,13 +22,13 @@ function Menu() {
   const categoryId = useSelector(selectCategoryId);
   const sort = useSelector(selectSort);
 
-  const category = categoryId > 0 ? categoryId : '';
-  const asc = sort.asc ? 'asc' : 'desc';
-  const property = sort.property === 'name' ? 'title' : sort.property;
-
   const dispatch = useAppDispatch();
 
   async function getPizzas() {
+    const category = categoryId > 0 ? categoryId : '';
+    const asc = sort.asc ? 'asc' : 'desc';
+    const property = sort.property === 'name' ? 'title' : sort.property;
+
     dispatch(fetchPizzas({
       category,
       asc,
