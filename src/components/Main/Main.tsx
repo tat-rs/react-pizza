@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Sort from '../Sort/Sort';
-import Сategories from '../Сategories/Сategories';
+import Сategories from '../Categories/Сategories';
 import PopupSort from '../PopupSort/PopupSort';
 import Menu from '../Menu/Menu';
 import styles from './Main.module.scss';

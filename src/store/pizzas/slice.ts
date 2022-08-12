@@ -1,24 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import fetchPizzas from './thunk';
-
-export type PizzaType = {
-  id: number;
-  title: string;
-  imageUrl: string;
-  sizes: number[];
-  price: number;
-  category: number;
-  rating: number;
-  desc: string;
-  count: number;
-}
-
-interface PizzaItem {
-  pizzas: PizzaType[];
-  isLoading: boolean;
-  error: boolean;
-}
+import { PizzaItem, PizzaType } from './types';
 
 const initialState: PizzaItem = {
   pizzas: [],

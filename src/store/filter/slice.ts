@@ -1,19 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { defaultSortType } from '../../utils/constants';
-
-type SortItem = {
-  id: number;
-  title: string;
-  property: string;
-  asc: boolean;
-}
-
-interface FilterItem {
-  categoryId: number;
-  sort: SortItem;
-  searchValue: string,
-}
+import { FilterItem, SortItem } from './types';
 
 const initialState: FilterItem = {
   categoryId: 0,

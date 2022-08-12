@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL_API } from '../../utils/constants';
-import { PizzaType } from './slice';
+import { PizzaType } from './types';
 
 type FetchPizzaArg = {
   category: number | string;

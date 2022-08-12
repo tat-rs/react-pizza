@@ -3,7 +3,8 @@ import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { type } from '../../utils/constants';
 import styles from './Pizza.module.scss';
-import { addItem, CartType } from '../../store/cart/slice';
+import { addItem } from '../../store/cart/slice';
+import { CartType } from '../../store/cart/types';
 
 type PizzaItem = {
   pizza: {

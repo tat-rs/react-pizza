@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import DeletePizza from '../../images/delete-pizza.svg';
 import { selectItems } from '../../store/cart/selectors';
 import {
-  addItem, CartType, removeItem, removeItems,
+  addItem, removeItem, removeItems,
 } from '../../store/cart/slice';
+import { CartType } from '../../store/cart/types';
 import styles from './CartList.module.scss';
 
 function CartList() {
