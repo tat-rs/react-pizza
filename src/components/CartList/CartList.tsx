@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import DeletePizza from '../../images/delete-pizza.svg';
 import { selectItems } from '../../store/cart/selectors';
@@ -11,6 +11,10 @@ import styles from './CartList.module.scss';
 function CartList() {
   const items = useSelector(selectItems);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(items));
+  }, [items]);
 
   function addPizza(pizza: CartType) {
     dispatch(addItem(pizza));

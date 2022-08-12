@@ -1,10 +1,12 @@
+/* eslint-disable max-len */
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { type } from '../../utils/constants';
 import styles from './Pizza.module.scss';
 import { addItem } from '../../store/cart/slice';
 import { CartType } from '../../store/cart/types';
+import { selectItems } from '../../store/cart/selectors';
 
 type PizzaItem = {
   pizza: {
@@ -24,8 +26,20 @@ function Pizza({ pizza }: PizzaItem) {
   const [isSelectedType, setIsSelectedType] = useState(type[0]);
   const [isSelectedSize, setIsSelectedSize] = useState(pizza.sizes[0]);
   const [isOPenDesc, setIsOpenDesc] = useState(false);
-  const [countPizza, setCountPizza] = useState(0);
+  const cartItem = useSelector(selectItems);
   const dispatch = useDispatch();
+
+  function getCount() {
+    let count = 0;
+    cartItem.forEach((item) => {
+      if (pizza.id === item.id) {
+        count += item.count;
+      }
+    });
+    return count;
+  }
+
+  const countPizza = getCount();
 
   const handleMouseOver = () => {
     setIsOpenDesc(true);
@@ -50,7 +64,6 @@ function Pizza({ pizza }: PizzaItem) {
     };
 
     dispatch(addItem(addedPizza));
-    setCountPizza(countPizza + 1);
   }
 
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { RootState } from '../store';
 
 const selectTotalPrice = (state: RootState) => state.cart.totalPrice;
