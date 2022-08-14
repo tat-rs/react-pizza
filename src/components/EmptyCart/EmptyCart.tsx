@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import EmptyCartImage from '../../images/empty-cart.png';
-import SadSmile from '../../images/sad-smile.png';
+import EmptyCartImage from '../../assets/png/empty-cart.png';
+import SadSmile from '../../assets/png/sad-smile.png';
 import styles from './EmptyCart.module.scss';
 
 function EmptyCart() {

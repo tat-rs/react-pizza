@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import SortIcon from '../../images/sort.svg';
-import ArrowDown from '../../images/arrow-down.png';
-import ArrowUp from '../../images/arrow-up.png';
+import ArrowUp from '../../assets/png/arrow-up.png';
+import ArrowDown from '../../assets/png/arrow-down.png';
 import styles from './Sort.module.scss';
 import { selectSort } from '../../store/filter/selectors';
+import Icon from '../Icon/icon';
 
 type SortItem = {
   handleChangePopup: () => void;
@@ -15,7 +15,7 @@ function Sort({ handleChangePopup }: SortItem) {
 
   return (
     <div className={styles.sort}>
-      <img className={styles.sort__icon} src={SortIcon} alt="Сортировка" />
+      <Icon type="sortIcon" className={styles.sort__icon} />
       <p className={styles.sort__text}>
         Сортировка по:
         <span

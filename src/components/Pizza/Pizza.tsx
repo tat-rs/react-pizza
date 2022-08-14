@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import classNames from 'classnames';
@@ -7,6 +8,7 @@ import styles from './Pizza.module.scss';
 import { addItem } from '../../store/cart/slice';
 import { CartType } from '../../store/cart/types';
 import { selectItems } from '../../store/cart/selectors';
+import Icon from '../Icon/icon';
 
 type PizzaItem = {
   pizza: {
@@ -25,7 +27,7 @@ type PizzaItem = {
 function Pizza({ pizza }: PizzaItem) {
   const [isSelectedType, setIsSelectedType] = useState(type[0]);
   const [isSelectedSize, setIsSelectedSize] = useState(pizza.sizes[0]);
-  const [isOPenDesc, setIsOpenDesc] = useState(false);
+  const [isOpenDesc, setIsOpenDesc] = useState(false);
   const cartItem = useSelector(selectItems);
   const dispatch = useDispatch();
 
@@ -83,7 +85,6 @@ function Pizza({ pizza }: PizzaItem) {
           {
             type.map((item, index) => (
               <li
-                // eslint-disable-next-line react/no-array-index-key
                 key={index}
                 className={classNames(styles.sort__item, {
                   [styles.sort__item_active]: isSelectedType === item,
@@ -102,7 +103,6 @@ function Pizza({ pizza }: PizzaItem) {
           {
             pizza.sizes.map((item, index) => (
               <li
-                // eslint-disable-next-line react/no-array-index-key
                 key={index}
                 className={classNames(styles.sort__item, {
                   [styles.sort__item_active]: isSelectedSize === item,
@@ -119,18 +119,14 @@ function Pizza({ pizza }: PizzaItem) {
       </div>
       <div className={styles.pizza__container}>
         <p className={styles.pizza__price}>{`от ${pizza.price} ₽`}</p>
-        <button className={styles.pizza__button} type="button" onClick={addPizza}>
-          <svg className={styles.pizza__buttonIcon} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z" fill="white" />
-          </svg>
-
+        <Icon type="plusIcon" className={styles.pizza__button} onClick={() => addPizza()}>
           Добавить
           {
             countPizza > 0 && <span className={styles.pizza__count}>{countPizza}</span>
           }
-        </button>
+        </Icon>
       </div>
-      {isOPenDesc && (
+      {isOpenDesc && (
       <div
         className={styles.pizza__desc}
         onMouseOver={handleMouseOver}

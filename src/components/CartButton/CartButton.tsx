@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import CartIcon from '../../images/cart.svg';
 import { selectTotalCount, selectTotalPrice } from '../../store/cart/selectors';
+import Icon from '../Icon/icon';
 
 import styles from './CartButton.module.scss';
 
@@ -15,7 +15,7 @@ function CartButton() {
       <p className={styles.button__sum}>{`${totalPrice} ₽`}</p>
       <span className={styles.button__border} />
       <div className={styles.button__container}>
-        <img className={styles.button__icon} src={CartIcon} alt="Корзина с заказами" />
+        <Icon type="cartIcon" className={styles.button__icon} />
         <span className={styles.button__count}>{totalCount}</span>
       </div>
     </Link>

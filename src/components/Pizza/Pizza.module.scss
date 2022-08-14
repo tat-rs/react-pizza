@@ -55,6 +55,16 @@
     justify-content: center;
     transition: background-color .3s, color .3s;
 
+    svg {
+      width: 12px;
+      height: 12px;
+
+      path {
+        fill: #EB5A1E;
+        transition: fill .3s;
+      }
+    }
+
     &:hover {
       cursor: pointer;
       background-color: #FE5F1E;
@@ -64,6 +74,7 @@
         fill: #fff;
       }
     }
+
   }
 
   &__buttonIcon {
@@ -147,7 +158,7 @@
 
 }
 
-@media (max-width: 815px) {
+@media (max-width: 975px) {
   .pizza {
     &__image {
       width: 200px;

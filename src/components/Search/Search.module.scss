@@ -8,6 +8,9 @@
     width: 20px;
     height: 20px;
     opacity: .5;
+    path {
+      fill: #000;
+    }
   }
 
   &__clear {
@@ -18,6 +21,13 @@
     height: 18px;
     opacity: .5;
     transition: opacity .3s;
+    border: none;
+    background-color: inherit;
+    padding: 0;
+
+    path {
+      fill: #000;
+    }
 
     &:hover {
       opacity: .8;

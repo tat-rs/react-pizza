@@ -5,14 +5,18 @@
   margin: 40px 0 32px;
 
   &__ref {
-    align-self:flex-end
+    align-self: center;
   }
 }
 
-@media (max-width: 815px) {
+@media (max-width: 975px) {
   .sort {
     flex-direction: column;
     gap: 15px;
     margin: 20px 0;
+
+    &__ref {
+      align-self:flex-start;
+    }
   }
 }
