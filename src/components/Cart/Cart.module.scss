@@ -90,10 +90,17 @@
     padding-bottom: 38px;
   }
 
+  &__text {
+    margin: 0;
+    padding: 0;
+  }
+
   &__nav {
     @include btn ();
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 14px;
     background-color: #282828;
     color: #fff;
     text-decoration: none;
@@ -108,7 +115,6 @@
   &__navBackIcon {
     min-width: 6px;
     height: 12px;
-    margin-right: 14px;
   }
 }
 
