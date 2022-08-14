@@ -48,6 +48,7 @@
     border: 1.5px solid rgb(165, 163, 163);
 
     &:focus {
+      border-radius: 10px;
       border: 1.5px solid #FE5F1E;
       outline: 1.5px solid #FE5F1E;
     }
