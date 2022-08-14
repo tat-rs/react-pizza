@@ -1,5 +1,6 @@
 .search {
   position: relative;
+  flex-basis: 300px;
   
   &__icon {
     position: absolute;
@@ -56,11 +57,5 @@
 @media (max-width: 955px) {
   .search {
     margin-bottom: 15px;
-  }
-}
-
-@media (max-width: 680px) {
-  .search {
-    max-width: 150px;
   }
 }

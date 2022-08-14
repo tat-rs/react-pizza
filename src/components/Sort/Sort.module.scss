@@ -1,6 +1,7 @@
 .sort {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 
   &:hover {
     cursor: pointer;
@@ -38,7 +39,7 @@
   }
 
   &__ascIcon {
-    display: block;
+    display: inline-block;
     width: 14px;
     height: 14px;
   }

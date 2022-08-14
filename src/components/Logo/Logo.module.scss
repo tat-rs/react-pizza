@@ -20,7 +20,7 @@
     line-height: 29px;
     letter-spacing: 0.01em;
     text-transform: uppercase;
-    color: #000;
+    color: #181818;
   }
 
   &__desc {
@@ -31,18 +31,22 @@
     line-height: 19px;
     color: #7B7B7B;
   }
+
 }
 
 @media (max-width: 1020px) {
   .logo {
-    margin-bottom: 25px;
     margin-right: 0;
   }
 }
 
 @media (max-width: 680px) {
   .logo {
-    margin-bottom: 0;
+    &__text {
+      font-size: 22px;
+      line-height: 24px;
+    }
+
     &__desc {
       display: none;
     }

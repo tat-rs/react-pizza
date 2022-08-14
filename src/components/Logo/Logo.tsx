@@ -7,7 +7,7 @@ function Logo() {
   return (
     <Link to="/" className={styles.logo}>
       <img className={styles.logo__image} src={LogoIcon} alt="Логотип" />
-      <div className={styles.logo__desc}>
+      <div className={styles.logo__descContainer}>
         <p className={styles.logo__text}>React Pizza</p>
         <p className={styles.logo__desc}>самая вкусная пицца во вселенной</p>
       </div>
