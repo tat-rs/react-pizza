@@ -113,8 +113,8 @@
   }
 
   &__navBackIcon {
-    min-width: 6px;
-    height: 12px;
+    width: 8px;
+    height: 100%;
   }
 }
 
@@ -155,6 +155,15 @@
       gap: 10px;
       max-width: 400px;
       margin: 40px auto 0;
+    }
+
+    &__nav {
+      gap: 5px;
+    }
+
+    &__navBackIcon {
+      width: 8px;
+      height: 10px;
     }
   }
 }

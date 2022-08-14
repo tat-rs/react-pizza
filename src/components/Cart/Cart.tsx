@@ -56,7 +56,7 @@ function Cart() {
       <div className={styles.btn__container}>
         <Link className={styles.btn__nav} to="/">
           <Icon type="arrowBackIcon" className={styles.btn__navBackIcon} />
-          <p className={styles.btn__text}>Вернуться назад</p>
+          <span className={styles.btn__text}>Вернуться назад</span>
         </Link>
         <button className={styles.btn__nav} type="button" disabled>Оплатить сейчас</button>
       </div>
