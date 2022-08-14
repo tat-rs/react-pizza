@@ -62,7 +62,7 @@
 
   &__countContainer {
     display: flex;
-    align-content: center;
+    align-items: center;
     gap: 12px;
   }
 
@@ -76,11 +76,29 @@
   &__countBtn {
     @include deleteBtn ();
     color: #8D8D8D;
+    transform: scale(1);
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__deleteBtn {
     @include deleteBtn ();
-    color: #8D8D8D;
+    opacity: .5;
+    transition: opacity .2s;
+    
+    path {
+      fill: #000;
+    }
+
+    circle {
+      stroke: #000;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &__sum {

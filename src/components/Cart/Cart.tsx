@@ -44,10 +44,12 @@ function Cart() {
       <div className={styles.cart__result}>
         <p className={styles.cart__resultInfo}>
           Всего пицц:
+          {' '}
           <b>{`${totalCount} шт.`}</b>
         </p>
         <p className={styles.cart__resultInfo}>
           Сумма заказа:
+          {' '}
           <b className={styles.cart__resultInfo_orange}>{`${totalPrice} ₽`}</b>
         </p>
       </div>

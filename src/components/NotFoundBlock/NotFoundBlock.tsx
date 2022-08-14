@@ -10,7 +10,7 @@ function NotFoundBlock() {
         <h2 className={styles.notFound__title}>404</h2>
         <p className={styles.notFound__text}>Страница не найдена</p>
       </div>
-      <button className={styles.notFound__btnBack} onClick={() => navigate('/menu')} type="button">На главную страницу</button>
+      <button className={styles.notFound__btnBack} onClick={() => navigate('/')} type="button">На главную страницу</button>
     </section>
   );
 }

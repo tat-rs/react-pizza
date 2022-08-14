@@ -13,7 +13,9 @@ import { ReactComponent as SortIcon } from '../../assets/sort-icon.svg';
 const defaultAttributes = {
   width: '100%',
   preserveAspectRatio: 'xMidYMid meet',
-  style: { maxWidth: 'inherit', maxHeight: 'inherit', height: 'inherit' },
+  style: {
+    maxWidth: 'inherit', maxHeight: 'inherit', height: 'inherit', strokeWidth: '2px',
+  },
   fill: 'none',
 };
 
