@@ -41,7 +41,7 @@ function Menu() {
   }, [categoryId, sort]);
 
   const pizzasList = pizzas
-    .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))
+    .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase().trim()))
     .map((item) => ((
       <Pizza key={item.id} pizza={item} />
     )));
