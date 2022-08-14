@@ -54,11 +54,11 @@ function Cart() {
         </p>
       </div>
       <div className={styles.btn__container}>
-        <Link className={styles.btn__navBack} to="/">
+        <Link className={styles.btn__nav} to="/">
           <Icon type="arrowBackIcon" className={styles.btn__navBackIcon} />
           Вернуться назад
         </Link>
-        <button className={styles.btn__navPush} type="button">Оплатить сейчас</button>
+        <button className={styles.btn__nav} type="button" disabled>Оплатить сейчас</button>
       </div>
     </section>
   );

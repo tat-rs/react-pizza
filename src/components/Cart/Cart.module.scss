@@ -90,26 +90,25 @@
     padding-bottom: 38px;
   }
 
-  &__navBack {
+  &__nav {
     @include btn ();
     display: flex;
     justify-content: center;
     background-color: #282828;
     color: #fff;
     text-decoration: none;
+
+    &:disabled {
+      background-color: #f8f8f8;
+      color: #c2c2c2;
+      cursor: auto;
+    }
   }
 
   &__navBackIcon {
     min-width: 6px;
     height: 12px;
     margin-right: 14px;
-  }
-
-  &__navPush {
-    @include btn ();
-    color: #FFFFFF;
-    border-color: #FE5F1E;
-    background-color: #FE5F1E;
   }
 }
 

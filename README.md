@@ -15,11 +15,11 @@
 ## Технологии
 * ReactJS 18
 * TypeScript
-* Redux Toolkit (хранение данных / пицц)
-* React Router v6 (навигация)
-* Axios (отправка запроса на бэкенд)
-* React Hooks (хуки)
-* SCSS (стилизация)
+* Redux Toolkit
+* React Router v6
+* Axios
+* React Hooks
+* SCSS
 * React Content Loader (скелетон)
 * Lodash.Debounce
 * Работа с локальным хранилищем

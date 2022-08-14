@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getCartItemLS } from '../../utils/getCartItemsLS';
@@ -23,7 +24,6 @@ const cartSlice = createSlice({
       && el.type === type
       && el.size === size);
       if (findItem) {
-        // eslint-disable-next-line no-plusplus
         findItem.count++;
       } else {
         state.items.push({
@@ -40,7 +40,6 @@ const cartSlice = createSlice({
       && el.type === type
       && el.size === size);
       if (findItem) {
-        // eslint-disable-next-line no-plusplus
         findItem.count--;
         state.totalPrice = getTotalPrice(state.items);
         state.totalCount = getTotalCount(state.items);
