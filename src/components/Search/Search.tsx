@@ -31,6 +31,7 @@ function Search() {
       <Icon type="searchIcon" className={styles.search__icon} />
       <input
         className={styles.search__input}
+        type="text"
         id="searchPizza"
         placeholder="Поиск..."
         value={value}
