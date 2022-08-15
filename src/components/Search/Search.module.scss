@@ -44,11 +44,12 @@
     color: #2C2C2C;
     box-sizing: border-box;
     padding: 8px 40px;
-    border: 1.5px solid rgb(165, 163, 163);
+    border-radius: 10px;
+    border: 2px solid rgb(165, 163, 163);
 
     &:focus {
-      border: 1.5px solid #FE5F1E;
-      outline: 1.5px solid #FE5F1E;
+      border: 2px solid #FE5F1E;
+      outline: none;
     }
   }
 }
