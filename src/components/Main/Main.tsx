@@ -4,9 +4,9 @@ import Sort from '../Sort/Sort';
 import Сategories from '../Categories/Сategories';
 import PopupSort from '../PopupSort/PopupSort';
 import Menu from '../Menu/Menu';
+import Message from '../Message/Message';
 import styles from './Main.module.scss';
 import { selectError } from '../../store/pizzas/selectors';
-import Message from '../Message/Message';
 import { SERVER_ERROR_MESSAGE } from '../../utils/constants';
 
 function Main() {

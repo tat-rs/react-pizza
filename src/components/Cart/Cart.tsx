@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import CartList from '../CartList/CartList';
 import Heading from '../Heading/Heading';
+import Icon from '../Icon/icon';
+import EmptyCart from '../EmptyCart/EmptyCart';
+
 import styles from './Cart.module.scss';
 
 import { clearItem } from '../../store/cart/slice';
 import { selectItems, selectTotalCount, selectTotalPrice } from '../../store/cart/selectors';
-import Icon from '../Icon/icon';
-import EmptyCart from '../EmptyCart/EmptyCart';
 
 function Cart() {
   const items = useSelector(selectItems);

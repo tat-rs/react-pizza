@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import styles from './Category.module.scss';
+
 import { setCategoryId } from '../../store/filter/slice';
 import { selectCategoryId } from '../../store/filter/selectors';
 

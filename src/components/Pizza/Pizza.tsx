@@ -3,12 +3,12 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-import { type } from '../../utils/constants';
+import Icon from '../Icon/icon';
 import styles from './Pizza.module.scss';
 import { addItem } from '../../store/cart/slice';
 import { CartType } from '../../store/cart/types';
 import { selectItems } from '../../store/cart/selectors';
-import Icon from '../Icon/icon';
+import { type } from '../../utils/constants';
 
 type PizzaItem = {
   pizza: {

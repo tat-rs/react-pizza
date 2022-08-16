@@ -4,15 +4,17 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Heading from '../Heading/Heading';
-import styles from './Menu.module.scss';
 import Pizza from '../Pizza/Pizza';
-import { BASE_COUNT_PIZZA, NOTFOUND_MESSAGE } from '../../utils/constants';
+import Message from '../Message/Message';
+import Skeleton from '../Loader/Skeleton';
+import styles from './Menu.module.scss';
+
 import { selectIsLoading, selectPizzas } from '../../store/pizzas/selectors';
 import { selectCategoryId, selectSearchValue, selectSort } from '../../store/filter/selectors';
-import Message from '../Message/Message';
 import fetchPizzas from '../../store/pizzas/thunk';
 import { useAppDispatch } from '../../store/store';
-import Skeleton from '../Loader/Skeleton';
+
+import { BASE_COUNT_PIZZA, NOTFOUND_MESSAGE } from '../../utils/constants';
 
 function Menu() {
   const searchValue = useSelector(selectSearchValue);

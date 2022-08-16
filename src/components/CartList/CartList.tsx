@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectItems } from '../../store/cart/selectors';
+import Icon from '../Icon/icon';
+import styles from './CartList.module.scss';
+
 import {
   addItem, removeItem, removeItems,
 } from '../../store/cart/slice';
 import { CartType } from '../../store/cart/types';
-import Icon from '../Icon/icon';
-import styles from './CartList.module.scss';
 
 function CartList() {
   const items = useSelector(selectItems);
