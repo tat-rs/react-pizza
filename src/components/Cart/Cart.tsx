@@ -6,10 +6,10 @@ import CartList from '../CartList/CartList';
 import Heading from '../Heading/Heading';
 import styles from './Cart.module.scss';
 
-import EmptyCart from '../EmptyCart/EmptyCart';
 import { clearItem } from '../../store/cart/slice';
 import { selectItems, selectTotalCount, selectTotalPrice } from '../../store/cart/selectors';
 import Icon from '../Icon/icon';
+import EmptyCart from '../EmptyCart/EmptyCart';
 
 function Cart() {
   const items = useSelector(selectItems);

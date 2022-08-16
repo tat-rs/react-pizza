@@ -5,7 +5,6 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Heading from '../Heading/Heading';
 import styles from './Menu.module.scss';
-import Loader from '../Loader/Loader';
 import Pizza from '../Pizza/Pizza';
 import { BASE_COUNT_PIZZA, NOTFOUND_MESSAGE } from '../../utils/constants';
 import { selectIsLoading, selectPizzas } from '../../store/pizzas/selectors';
@@ -13,6 +12,7 @@ import { selectCategoryId, selectSearchValue, selectSort } from '../../store/fil
 import Message from '../Message/Message';
 import fetchPizzas from '../../store/pizzas/thunk';
 import { useAppDispatch } from '../../store/store';
+import Skeleton from '../Loader/Skeleton';
 
 function Menu() {
   const searchValue = useSelector(selectSearchValue);
@@ -48,7 +48,7 @@ function Menu() {
 
   const skeletons = [...Array(BASE_COUNT_PIZZA)].map((item, index) => (
     <li key={index} className={styles.skeleton}>
-      <Loader />
+      <Skeleton />
     </li>
   ));
 
