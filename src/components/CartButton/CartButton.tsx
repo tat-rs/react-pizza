@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectTotalCount, selectTotalPrice } from '../../store/cart/selectors';
 import Icon from '../Icon/icon';
+import { selectTotalCount, selectTotalPrice } from '../../store/cart/selectors';
 
 import styles from './CartButton.module.scss';
 

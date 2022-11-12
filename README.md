@@ -46,4 +46,4 @@ __4. Собрать проект__
 
 ## Ссылка на сайт
 
-Проект доступен по ссылке: <a href="https://pizza22.herokuapp.com/" target="_blank" rel="noopener">https://pizza22.herokuapp.com/</a>
+Проект доступен по ссылке: <a href="https://react-pizza-delta-woad.vercel.app" target="_blank" rel="noopener">https://react-pizza-delta-woad.vercel.app</a>
